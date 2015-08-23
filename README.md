@@ -23,7 +23,12 @@ npm install watchify-middleware --save
 var watchifyMiddleware = require('watchify-middleware')
 
 var entry = 'bundle.js'
-var bundler = browserify('app.js', { basedir: __dirname })
+var bundler = browserify('app.js', {
+  // config for watchify
+  cache: {}, 
+  packageCache: {},
+  basedir: __dirname 
+})
 var watchify = watchifyMiddleware(bundler)
 
 var server = http.createServer(function (req, res) {

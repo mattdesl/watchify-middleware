@@ -4,7 +4,13 @@ var defaultIndex = require('simple-html-index')
 var browserify = require('browserify')
 
 var staticUrl = 'bundle.js'
-var bundler = browserify('app.js', { debug: true, basedir: __dirname })
+var bundler = browserify('app.js', {
+  // config for watchify
+  cache: {},
+  packageCache: {},
+  debug: true,
+  basedir: __dirname
+})
 var watcher = watchifyMiddleware.emitter(bundler, {
   errorHandler: true
 })
