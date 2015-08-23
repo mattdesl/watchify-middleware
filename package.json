@@ -1,0 +1,51 @@
+{
+  "name": "watchify-middleware",
+  "version": "1.0.0",
+  "description": "a server for faster watchify development",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Matt DesLauriers",
+    "email": "dave.des@gmail.com",
+    "url": "https://github.com/mattdesl"
+  },
+  "dependencies": {
+    "concat-stream": "^1.5.0",
+    "debounce": "^1.0.0",
+    "events": "^1.0.2",
+    "object-assign": "^4.0.1",
+    "watchify": "^3.3.1"
+  },
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "garnish": "^2.3.0",
+    "minimist": "^1.1.3",
+    "simple-html-index": "^1.0.1"
+  },
+  "scripts": {
+    "start": "node example/server.js | garnish"
+  },
+  "keywords": [
+    "watchify",
+    "server",
+    "fast",
+    "reload",
+    "incremental",
+    "suspend",
+    "request",
+    "response",
+    "wait",
+    "delay",
+    "live",
+    "browser",
+    "browserify"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/watchify-middleware.git"
+  },
+  "homepage": "https://github.com/mattdesl/watchify-middleware",
+  "bugs": {
+    "url": "https://github.com/mattdesl/watchify-middleware/issues"
+  }
+}
