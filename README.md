@@ -104,6 +104,10 @@ Bundle updates look like this:
 
 These events work well with [garnish](https://github.com/mattdesl/garnish) and other ndjson-based tools.
 
+#### `emitter.close()`
+
+Closes the `watchify` instance and stops file watching.
+
 ## running the demo
 
 To run the example, first git clone and install dependencies.
