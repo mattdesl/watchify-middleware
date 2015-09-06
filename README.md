@@ -60,11 +60,16 @@ Returns a `middleware(req, res)` function from the given `browserify` bundler in
 `errorHandler` can be a function that accepts `(err)` parameter and optionally returns the new contents (String|Buffer) of the JavaScript bundle. If `errorHandler` is `true`, it will default to the following:
 
 ```js
+var stripAnsi = require('strip-ansi')
+
 function defaultErrorHandler (err) {
   console.error('%s', err)
-  return ';console.error(' + JSON.stringify(err.message) + ');'
+  var msg = stripAnsi(err.message)
+  return ';console.error(' + JSON.stringify(msg) + ');'
 }
 ```
+
+  <sup>(some plugins produce ANSI color codes in error messages)</sup>
 
 Otherwise, it assumes the normal behaviour for error handling (which is typically just an uncaught error event).
 
