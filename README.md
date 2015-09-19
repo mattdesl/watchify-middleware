@@ -81,17 +81,17 @@ The same as above, except this returns an EventEmitter for handling bundle updat
 
 The `middleware(req, res)` function for use in your server.
 
-#### `emitter.on('pending')`
+#### `emitter.on('pending', fn)`
 
 Called when watchify begins its incremental rebuild.
 
-#### `emitter.on('update')`
+#### `emitter.on('update', fn)`
 
 Called when bundling is finished, with parameter `(contents, rows)`. 
 
 `contents` is a Buffer/String of the bundle and `rows` is a list of dependencies that have changed since last update. On first run, this will be an empty array.
 
-#### `emitter.on('log')`
+#### `emitter.on('log', fn)`
 
 Provides timing and server request logging, passing an `(event)` parameter.
 
@@ -108,6 +108,14 @@ Bundle updates look like this:
 ```
 
 These events work well with [garnish](https://github.com/mattdesl/garnish) and other ndjson-based tools.
+
+#### `emitter.on('error', fn)`
+
+If `errorHandler` was `fasle`, this will get triggered on bundle errors. If an error handler is being used, this will not get triggered.
+
+#### `emitter.on('bundle-error', fn)`
+
+This will get triggered on bundle errors, regardless of whether `errorHandler` is being used. This can be used to respond to syntax errors, such as showing a stylized notification.
 
 #### `emitter.close()`
 
