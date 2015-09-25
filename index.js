@@ -7,6 +7,10 @@ module.exports = function watchifyMiddleware (browserify, opt) {
 
 module.exports.emitter = createEmitter
 
+module.exports.getWatchifyVersion = function () {
+  return require('watchify/package.json').version
+}
+
 function createEmitter (browserify, opt) {
   var bundler = createBundler(browserify, opt)
   var pending = false

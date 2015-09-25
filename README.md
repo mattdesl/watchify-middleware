@@ -77,21 +77,21 @@ Otherwise, it assumes the normal behaviour for error handling (which is typicall
 
 The same as above, except this returns an EventEmitter for handling bundle updates.
 
-#### `emitter.middleware`
+##### `emitter.middleware`
 
 The `middleware(req, res)` function for use in your server.
 
-#### `emitter.on('pending', fn)`
+##### `emitter.on('pending', fn)`
 
 Called when watchify begins its incremental rebuild.
 
-#### `emitter.on('update', fn)`
+##### `emitter.on('update', fn)`
 
 Called when bundling is finished, with parameter `(contents, rows)`. 
 
 `contents` is a Buffer/String of the bundle and `rows` is a list of dependencies that have changed since last update. On first run, this will be an empty array.
 
-#### `emitter.on('log', fn)`
+##### `emitter.on('log', fn)`
 
 Provides timing and server request logging, passing an `(event)` parameter.
 
@@ -109,17 +109,21 @@ Bundle updates look like this:
 
 These events work well with [garnish](https://github.com/mattdesl/garnish) and other ndjson-based tools.
 
-#### `emitter.on('error', fn)`
+##### `emitter.on('error', fn)`
 
 If `errorHandler` was `fasle`, this will get triggered on bundle errors. If an error handler is being used, this will not get triggered.
 
-#### `emitter.on('bundle-error', fn)`
+##### `emitter.on('bundle-error', fn)`
 
 This will get triggered on bundle errors, regardless of whether `errorHandler` is being used. This can be used to respond to syntax errors, such as showing a stylized notification.
 
-#### `emitter.close()`
+##### `emitter.close()`
 
 Closes the `watchify` instance and stops file watching.
+
+#### `version = watchifyMiddleware.getWatchifyVersion()`
+
+Primarily useful for debugging, this will return the *actual* version number of the `watchify` module being used by `watchify-middleware`.
 
 ## running the demo
 
