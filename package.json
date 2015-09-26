@@ -1,6 +1,6 @@
 {
   "name": "watchify-middleware",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "a server for faster watchify development",
   "main": "index.js",
   "license": "MIT",
