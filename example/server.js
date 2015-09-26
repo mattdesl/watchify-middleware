@@ -16,6 +16,14 @@ var watcher = watchifyMiddleware.emitter(bundler, {
   errorHandler: true
 })
 
+watcher.on('pending', function () {
+  console.log('pending request')
+})
+
+watcher.on('update', function () {
+  console.log('update request')
+})
+
 watcher.on('log', function (ev) {
   if (ev.elapsed) {
     ev.elapsed = ev.elapsed + 'ms'

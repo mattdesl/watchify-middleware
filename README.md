@@ -21,8 +21,9 @@ npm install watchify-middleware --save
 
 ```js
 var watchifyMiddleware = require('watchify-middleware')
+var defaultIndex = require('simple-html-index')
 
-var entry = 'bundle.js'
+var staticUrl = 'bundle.js'
 var bundler = browserify('app.js', {
   // config for watchify
   cache: {}, 
