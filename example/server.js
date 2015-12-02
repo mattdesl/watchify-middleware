@@ -10,8 +10,10 @@ var bundler = browserify('app.js', {
   transform: require('babelify'),
   packageCache: {},
   debug: true,
+  transform: 'brfs',
   basedir: __dirname
 })
+
 var watcher = watchifyMiddleware.emitter(bundler, {
   errorHandler: true
 })
