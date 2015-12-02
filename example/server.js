@@ -7,10 +7,9 @@ var staticUrl = 'bundle.js'
 var bundler = browserify('app.js', {
   // config for watchify
   cache: {},
-  transform: require('babelify'),
+  transform: [ require('babelify'), 'brfs' ],
   packageCache: {},
   debug: true,
-  transform: 'brfs',
   basedir: __dirname
 })
 
