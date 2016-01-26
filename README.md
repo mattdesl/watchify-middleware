@@ -57,6 +57,7 @@ Returns a `middleware(req, res)` function from the given `browserify` bundler in
 
 - `delay` (default 0) a delay to debounce the rebuild, useful for things like git branch switches (where hundreds of files may change at once)
 - `errorHandler` (default false) a boolean or function for handling errors
+- `initialBundle` (default true) whether to initially bundle and emit `'pending'`
 
 `errorHandler` can be a function that accepts `(err)` parameter and optionally returns the new contents (String|Buffer) of the JavaScript bundle. If `errorHandler` is `true`, it will default to the following:
 
@@ -81,6 +82,10 @@ The same as above, except this returns an EventEmitter for handling bundle updat
 ##### `emitter.middleware`
 
 The `middleware(req, res)` function for use in your server.
+
+##### `emitter.bundle()`
+
+Triggers a bundle event. Usually should only be called if `initialBundle` is set to false, to trigger the initial bundle.
 
 ##### `emitter.on('pending', fn)`
 

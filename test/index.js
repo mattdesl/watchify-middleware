@@ -100,7 +100,7 @@ test('serves without error handler', function(t) {
 })
 
 test('does watchify stuff correctly', function(t) {
-  t.plan(3)
+  t.plan(2)
   
   var fixture = path.resolve(__dirname, 'fixture-watch.js')
   var bundler = browserify(fixture, {
@@ -108,7 +108,9 @@ test('does watchify stuff correctly', function(t) {
     packageCache: {},
     basedir: __dirname 
   })
-  var emitter = watchifyMiddleware.emitter(bundler)
+  var emitter = watchifyMiddleware.emitter(bundler, {
+    initialBundle: false
+  })
   var middleware = emitter.middleware
   var staticUrl = 'bundle.js'
   var uri = 'http://localhost:8000/' + staticUrl
@@ -128,6 +130,7 @@ test('does watchify stuff correctly', function(t) {
   
   function startTest() {
     runRequest(logFoo, function () {
+      emitter.bundle()
       emitter.once('pending', function () {
         // file save event
         fs.writeFile(fixture, 'console.log("bar")', function (err) {
@@ -141,7 +144,6 @@ test('does watchify stuff correctly', function(t) {
       emitter.once('update', function (src) {
         vm.runInNewContext(src, { console: { log: logBar } });
       })
-      
     })
   }
   
