@@ -18,9 +18,8 @@
     "watchify": "^3.11.1"
   },
   "devDependencies": {
-    "babelify": "^6.3.0",
     "brfs": "^1.4.1",
-    "browserify": "^11.2.0",
+    "browserify": "^16.2.3",
     "faucet": "0.0.1",
     "garnish": "^2.3.0",
     "got": "^4.2.0",
