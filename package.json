@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "brfs": "^1.4.1",
-    "browserify": "^16.2.3",
+    "browserify": "^17.0.0",
     "faucet": "0.0.1",
     "garnish": "^2.3.0",
     "got": "^4.2.0",
