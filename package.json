@@ -21,7 +21,7 @@
     "brfs": "^1.4.1",
     "browserify": "^17.0.0",
     "faucet": "0.0.1",
-    "garnish": "^2.3.0",
+    "garnish": "^4.1.0",
     "got": "^4.2.0",
     "minimist": "^1.2.5",
     "semver": "^5.0.3",
